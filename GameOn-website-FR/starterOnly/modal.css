@@ -9,6 +9,20 @@
   padding: 0;
 }
 /* Landing Page */
+.confirm-message {
+  text-align: center;
+  align-content: center;
+  padding-top: 75px;
+
+}
+.confirm-message p{
+  padding-bottom: 250px ;
+}
+
+
+.hide {
+  display: none;
+}
 
 
 body {

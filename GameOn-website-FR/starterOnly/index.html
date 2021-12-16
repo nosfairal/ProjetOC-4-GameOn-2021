@@ -57,11 +57,13 @@
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
-            <form
+            <div class="confirm-message hide"><p>Merci de votre inscription sur "GameOn"</p><button class="button-ok btn-submit">OK</button></div>
+            <form 
+              class=""
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate()"
+              onsubmit="return validate(event)"
               id="formulaire"
             >
               <div
