@@ -45,7 +45,8 @@ function validateEmail (emailAdress)
 // Form listener
 const formulaire = document.getElementById('formulaire');
 const confirmMessage = document.querySelector('.confirm-message');
-const cityButton = document.querySelectorAll('input[type="radio"]');
+const cityButtons = document.querySelectorAll('input[type="radio"]');
+let radioVerif = false
 
 function validate(){
   let condition = true
@@ -134,28 +135,21 @@ function validate(){
     errorQuantity.style.display = "none"
   }
 
-  cityButton.forEach(function(city){
-    if (city.checked === false) {
-      errorCity.style.display = "initial"
+cityButtons.forEach(function(city){
+  if (city.checked === true) {
+    radioVerif = true
+  }
+})
+  if (radioVerif === false) {
+      errorCity.style.display = "initial";
       errorCity.innerHTML = "✘ Vous devez choisir une option";
       errorCity.style.color = "red";
-      errorCity.style.fontSize = "small"
-      verification = false
-    } else {
-      errorCity.style.display = "none"
-  }});
-
-  /*if (location1.checked === false &&  location2.checked === false &&  location3.checked === false
-     &&  location4.checked === false &&  location5.checked === false &&  location6.checked === false) {
-      errorCity.style.display = "initial"
-      errorCity.innerHTML = "✘ Vous devez choisir une option";
-      errorCity.style.color = "red";
-      errorCity.style.fontSize = "small"
-      verification = false
+      errorCity.style.fontSize = "small";
+      verification = false;
   } else {
-    errorCity.style.display = "none"
+    errorCity.style.display = "none";
     
-  }*/
+  }
   if (!checkbox1.checked) {
     errorCondition.style.display = "initial";
     errorCondition.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions.";
