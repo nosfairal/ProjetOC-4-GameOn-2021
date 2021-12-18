@@ -162,7 +162,7 @@ cityButtons.forEach(function(city){
   
   condition =  confirm('Voulez-vous envoyer le formulaire ?');
    if (condition === false || verification === false) {
-    return verification
+    return false
    } else  {
     formulaire.classList.add("hide");
     confirmMessage.classList.remove("hide");
