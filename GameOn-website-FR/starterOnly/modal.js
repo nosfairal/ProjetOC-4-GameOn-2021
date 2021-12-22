@@ -63,15 +63,7 @@ function validate(){
   const email = document.querySelector('#email');
   const birthdate = document.querySelector('#birthdate');
   const quantity = document.querySelector('#quantity');
-  const location1 = document.querySelector('#location1');
-  const location2 = document.querySelector('#location2');
-  const location3 = document.querySelector('#location3');
-  const location4 = document.querySelector('#location4');
-  const location5 = document.querySelector('#location5');
-  const location6 = document.querySelector('#location6');
   const checkbox1 = document.querySelector('#checkbox1');
-  const checkbox2 = document.querySelector('#checkbox2');
-  const conditions = document.getElementById("conditions");
   
   
 
