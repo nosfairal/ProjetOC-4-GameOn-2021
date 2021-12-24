@@ -40,7 +40,14 @@ function validateEmail (emailAdress)
     return false; 
   }
 }
-
+function validateInput(input) {
+  let regexInput = /^[a-zA-Z]+( [a-zA-Z]+)*$/;
+  if(input.match(regexInput)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // Form listener
 const formulaire = document.getElementById('formulaire');
@@ -67,7 +74,7 @@ function validate(){
   
   
 
-  if (first.value == 0 || first.length <= 2 ) {
+  if (validateInput(first.value) === false || first.value == 0 || first.length <= 2 ) {
     first.style.border = "red 3px solid";
     errorFirst.style.display = "initial"
     errorFirst.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
@@ -79,7 +86,7 @@ function validate(){
     errorFirst.style.display = "none"
   }
 
-  if (last.value == 0 || last.length <= 2 ) {
+  if (validateInput(last.value) === false || last.value == 0 || last.length <= 2 ) {
     last.style.border = "red 3px solid"
     errorLast.style.display = "initial"
     errorLast.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
