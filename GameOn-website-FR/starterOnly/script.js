@@ -19,9 +19,14 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";
 }
-function closeModal() {
-  modalbg.style.display = "none";
-}
+
+// close modal form
+closeBtn.addEventListener('click', () => {
+  modalbg.style.display = "none"
+})
+document.querySelector('.btn-modal--closing').addEventListener('click', () => {
+  modalbg.style.display = "none"
+})
 
 // close form windows
 const closeBtn = document.getElementsByClassName('close');
@@ -31,18 +36,17 @@ closeBtn[0].addEventListener('click', closeModal);
 closeBtnOk[0].addEventListener('click', closeModal);
 
 // Regex email 
-function validateEmail (emailAdress)
-{
+function validateEmail(emailAdress) {
   let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   if (emailAdress.match(regexEmail)) {
-    return true; 
+    return true;
   } else {
-    return false; 
+    return false;
   }
 }
 function validateInput(input) {
   let regexInput = /^[a-zA-Z]+( [a-zA-Z]+)*$/;
-  if(input.match(regexInput)) {
+  if (input.match(regexInput)) {
     return true;
   } else {
     return false;
@@ -55,7 +59,7 @@ const confirmMessage = document.querySelector('.confirm-message');
 const cityButtons = document.querySelectorAll('input[type="radio"]');
 let radioVerif = false
 
-function validate(){
+function validate() {
   let condition = true
   let verification = true
   const errorFirst = document.querySelector('#error-first');
@@ -71,10 +75,10 @@ function validate(){
   const birthdate = document.querySelector('#birthdate');
   const quantity = document.querySelector('#quantity');
   const checkbox1 = document.querySelector('#checkbox1');
-  
-  
 
-  if (validateInput(first.value) === false || first.value == 0 || first.length <= 2 ) {
+
+
+  if (validateInput(first.value) === false || first.value == 0 || first.length <= 2) {
     first.style.border = "red 3px solid";
     errorFirst.style.display = "initial"
     errorFirst.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
@@ -86,7 +90,7 @@ function validate(){
     errorFirst.style.display = "none"
   }
 
-  if (validateInput(last.value) === false || last.value == 0 || last.length <= 2 ) {
+  if (validateInput(last.value) === false || last.value == 0 || last.length <= 2) {
     last.style.border = "red 3px solid"
     errorLast.style.display = "initial"
     errorLast.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
@@ -122,7 +126,7 @@ function validate(){
     errorBirthdate.style.display = "none"
   }
 
-  if (quantity.value === "" || typeof parseFloat(quantity.value) !== "number" ) {
+  if (quantity.value === "" || typeof parseFloat(quantity.value) !== "number") {
     quantity.style.border = "red 3px solid"
     errorQuantity.style.display = "initial"
     errorQuantity.innerHTML = "Vous devez indiquer un nombre (0-99)";
@@ -134,20 +138,20 @@ function validate(){
     errorQuantity.style.display = "none"
   }
 
-cityButtons.forEach(function(city){
-  if (city.checked === true) {
-    radioVerif = true
-  }
-})
+  cityButtons.forEach(function (city) {
+    if (city.checked === true) {
+      radioVerif = true
+    }
+  })
   if (radioVerif === false) {
-      errorCity.style.display = "initial";
-      errorCity.innerHTML = "✘ Vous devez choisir une option";
-      errorCity.style.color = "red";
-      errorCity.style.fontSize = "small";
-      verification = false;
+    errorCity.style.display = "initial";
+    errorCity.innerHTML = "✘ Vous devez choisir une option";
+    errorCity.style.color = "red";
+    errorCity.style.fontSize = "small";
+    verification = false;
   } else {
     errorCity.style.display = "none";
-    
+
   }
   if (!checkbox1.checked) {
     errorCondition.style.display = "initial";
@@ -158,18 +162,18 @@ cityButtons.forEach(function(city){
   } else {
     errorCondition.style.display = "none"
   }
-  
-  condition =  confirm('Voulez-vous envoyer le formulaire ?');
-   if (condition === false || verification === false) {
+
+  condition = confirm('Voulez-vous envoyer le formulaire ?');
+  if (condition === false || verification === false) {
     return false
-   } else  {
+  } else {
     formulaire.classList.add("hide");
     confirmMessage.classList.remove("hide");
     event.preventDefault();
-   }
-    
-       
-  
+  }
+
+
+
 }
 
 
