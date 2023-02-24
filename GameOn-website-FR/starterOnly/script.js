@@ -94,7 +94,9 @@ const checkLastName = () => {
 }
 //check email entry
 const checkEmail = () => {
-  condition = email.value === "" || email.value.indexOf("@", 0) < 0 || email.value.indexOf(".", 0) < 0; //Find the first occurrence of "@"/".", starting at position 0
+  const emailValue = email.value.trim(); // delete spaces after and before caracters's chain.
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/ // regex to validate mail
+  condition = !emailRegex.test(emailValue) || emailValue === ""; // test if mail is valid using regex. 
   return validateEntry(condition, "Entrez une adresse email valide.", 2);
 }
 //check Birthdate entry
